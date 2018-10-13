@@ -16,11 +16,12 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-checkbox ngModel name="agree" required color="primary">Agree to Terms and Conditions.</mat-checkbox>
-    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+    <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </form>
 </section>
 <form (ngSubmit)="onAddProduct(f)" #f="ngForm">
   <input type="text" ngModel name="productName" required>
   <button type="submit">Add Product</button>
 </form>
-<pre>{{f.value | json }}</pre>
+<!--<pre>{{f.value | json }}</pre>-->

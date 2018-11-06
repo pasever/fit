@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -11,7 +11,8 @@ import { SharedModule } from "../shared/shared.module";
 import { TrainingRoutingModule } from "./training-routing.module";
 import { TrainingComponent } from "../../../../fitness-tracker/src/app/training/training.component";
 import { CurrentTrainingComponent } from "../../../../fitness-tracker/src/app/training/current-training/current-training.component";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { StoreModule } from "@ngrx/store";
+import { trainingReducer } from './traininig.reducer';
 
 
 @NgModule({
@@ -24,8 +25,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     ],
     imports: [
         SharedModule,
-        AngularFirestoreModule,
-        TrainingRoutingModule
+        TrainingRoutingModule,
+        StoreModule.forFeature('training',trainingReducer)
     ],
     entryComponents: [
         StopTrainingComponent

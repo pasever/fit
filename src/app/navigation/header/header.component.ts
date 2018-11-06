@@ -1,8 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subscription } from "rxjs/Subscription";
 import { Store } from '@ngrx/store';
-import * as fromRoot from '../../app.reducer';
 import { Observable } from "rxjs/Observable";
+
+import * as fromRoot from '../../app.reducer';
 import { AuthService } from "../../auth/auth.service";
 
 @Component({
@@ -29,6 +30,5 @@ export class HeaderComponent implements OnInit {
   onLogout() {
     this.authService.logout();
   }
-
 
 }

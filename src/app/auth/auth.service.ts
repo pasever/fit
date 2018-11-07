@@ -8,12 +8,9 @@ import { User } from './user.model';
 import { AuthData } from "./auth-data.model";
 import { TrainingService } from "../training/training.service";
 import { UIService } from "../shared/ui.service";
-// import * as fromApp from '../app.reducer';
 import * as fromRoot from '../app.reducer';
 import * as UI from '../shared/ui.actions';
 import * as Auth from './auth.actions';
-import { START_LOADING } from "../shared/ui.actions";
-
 
 @Injectable()
 export class AuthService {
@@ -45,8 +42,6 @@ export class AuthService {
         this.afAuth.auth.createUserWithEmailAndPassword(authData.email, authData.password)
                         .then(result => {
                             this.store.dispatch(new UI.StopLoading());
-                            console.log(result);
-                            // this.authSuccessfully();
                         })
                         .catch(error => {
                             this.store.dispatch(new UI.StopLoading());
